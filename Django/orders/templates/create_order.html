@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block script %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+{% endblock %}
+
+
+{% block body %}
+
+<body style="overflow-y:scroll; background-color: rgb(151, 195, 226);">
+    <header class='text-center' style="background-color: rgb(151, 195, 226);" style="width: 100%">
+        <h1 class="display-2 py-4" style="color: #e4d9c0">Maintenance Software</h1>
+    </header>
+    <div style="width: 35%; margin-left: 32%; background-color: rgb(151, 195, 226);">
+        <h1 style="text-align: center;">Create Work Order</h1>
+        <div class='col p-2' style="background-color: rgb(151, 195, 226);">
+            <form id="display-form" action="{% url 'create_order' %}" method="POST">
+                {% csrf_token %}
+                <div class="form-group" style="background-color: rgb(151, 195, 226);">
+                    <input type="text" class="form-control" name="orderNum" placeholder="Order Number" required />
+                    <input type="text" class="form-control" name="title" placeholder="Work Title"
+                        style="margin-top: 2px;" required />
+                    <input type="text" class="form-control" name="description" placeholder="Description"
+                        style="margin-top: 2px; " required />
+                    <input list="types" class="form-control" name="tipo" placeholder="Type" style="margin-top: 2px; "
+                        required />
+                    <datalist id="types">
+                        <option value="Mechanic">
+                        <option value="Electronic">
+                    </datalist>
+                    <input type="text" class="form-control" name="cost" placeholder="Estimated Cost"
+                        style="margin-top: 2px; " required />
+                    <input type="text" class="form-control" name="createDate" placeholder="Creation Date"
+                        style="margin-top: 2px; " required />
+                    <input type="text" class="form-control" name="startDate" placeholder="Start Date"
+                        style="margin-top: 2px; " required />
+                    <input type="text" class="form-control" name="endDate" placeholder="End Date"
+                        style="margin-top: 2px; " required />
+                    <input list="prio" class="form-control" name="prio" placeholder="Priority" style="margin-top: 2px; "
+                        required />
+                    <datalist id="prio">
+                        <option value="Emergency">
+                        <option value="High">
+                        <option value="Low">
+                    </datalist>
+                </div>
+                <button type="submit" class="btn m-1 w-100" style="background-color: #FFA600;">Create Task</button>
+                <button class="btn m-1 w-100" id="signin-button" style="background-color: #FF5A20;"><a
+                        style="color:#e4d9c0" href="{% url 'index' %}">Back</a></button>
+            </form>
+        </div>
+    </div>
+    <div class="centered" style="background-color: rgb(151, 195, 226);">
+        <img src="{% static 'img/maint.png' %}" alt="Maint" width="100%"
+            style="max-width: 300px; margin: auto; margin-top: 3%; display: block;">
+    </div>
+    </div>
+    {% if success_message %}
+    <div class="alert-success">
+        <strong>Success!</strong> {{ success_message }}
+    </div>
+    {% endif %}
+    {% if fail_message %}
+    <div class="alert-danger">
+        <strong>Error!</strong> {{ fail_message }}
+    </div>
+    {% endif %}
+
+</body>
+{% endblock %}

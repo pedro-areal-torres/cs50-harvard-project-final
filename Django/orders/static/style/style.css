@@ -1,0 +1,101 @@
+body{
+    background-color: white;
+    overflow: hidden;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+li {
+    display: inline
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+.center{
+    margin: 10vh auto;
+    text-align: center;
+    background-color: white;
+}
+
+.section-right{
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+}
+
+.section-left{
+    height: 100vh;
+    background-color: rgb(48, 46, 46);
+}
+
+.img-ctr {
+    width: 1000px;
+    margin-left: 50%;
+}
+
+#add-button{
+    float: right;
+    /* width: 20%; */
+    font-size: 12px;
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding: 0 5px;
+}
+
+#add-button:hover{
+    background-color: rgba(94, 94, 94, 0.8);
+}
+
+.modal-header{
+    border-bottom: 0 none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.modal-header h4{
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.modal-header p{
+    font-size: 14px;
+    color: gray;
+}
+
+.modal-body{
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.modal-body button{
+    float: right;
+    margin-top: 30px;
+}
+
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+}
+
+
+
